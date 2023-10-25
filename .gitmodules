@@ -1,0 +1,6 @@
+[submodule "easyevents"]
+	path = easyevents
+	url = git@github.com:Data5tream/easyevents_api.git
+[submodule "easyevents_spa"]
+	path = easyevents_spa
+	url = git@github.com:Data5tream/easyevents_spa.git
