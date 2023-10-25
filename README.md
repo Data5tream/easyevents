@@ -1,16 +1,16 @@
-# Easy Events - CS50W Capstone Project
+# Easy Events
 
 ## Introduction
 
 Easy Events is a simple event organization platform that allows event organizers to set up events and participants to join those.
 
-The organizers create and manage their events through an SPA written in Typescript using [Sveltekit](https://kit.svelte.dev/) and [Carbon Design System](https://carbondesignsystem.com/developing/frameworks/svelte/) as it's UI framework.
+The organizers create and manage their events through an SPA written in Typescript using [SvelteKit](https://kit.svelte.dev/) and [Carbon Design System](https://carbondesignsystem.com/developing/frameworks/svelte/) as it's UI framework.
 
-The participants use a simple Django based interface designed with [Tailwind CSS](https://tailwindcss.com/) using [Django Tailwind](https://github.com/timonweb/django-tailwind).
+The participants use a simple Django based interface designed with [TailwindCSS](https://tailwindcss.com/) using [Django Tailwind](https://github.com/timonweb/django-tailwind).
 
 ## Usage
 
-The easiest way to run this project is to use Docker compose. Fill out a `.env` file with the following required variables (example values are for a simple local deployment):
+The easiest way to run this project is to use Docker compose. Fill out an `.env` file with the following required variables (example values are for a simple local deployment):
 
 ```
 API_HOST=http://localhost:8000
