@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: $DB_PASS
+      POSTGRES_USER: $DB_USER
+      POSTGRES_DB: "easy_events"
+    networks:
+      - internal
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    restart: unless-stopped
+  api:
+    build: easyevents
+    environment:
+      ALLOWED_HOSTS: "localhost"
+      DEBUG: 1
+      SECRET_KEY: "CHANGE_ME_FOR_PROD!!!"
+      USER_WEBROOT: $API_HOST
+      SPA_HOST: $SPA_HOST
+      DEFAULT_FROM_EMAIL: "noreply@localhost"
+      DB_PASS: $DB_PASS
+      DB_USER: $DB_USER
+    ports:
+      - "8000:8000"
+    networks:
+      - internal
+    restart: unless-stopped
+    depends_on:
+      - db
+  spa:
+    build: easyevents_spa
+    init: true
+    environment:
+      PUBLIC_API_HOST: $API_HOST
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+networks:
+  internal:
+
+volumes:
+  postgres_data:
